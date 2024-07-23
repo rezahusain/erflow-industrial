@@ -1,0 +1,12 @@
+<h1>Patient requests</h1>
+
+<div id="patient_requests">
+  <% @patient_requests.each do |patient_request| %>
+    <%= render patient_request %>
+    <p>
+      <%= link_to "Show this patient request", patient_request %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New patient request", new_patient_request_path %>
