@@ -1,7 +1,11 @@
 <div id="<%= dom_id patient_request %>">
   <p>
-    <strong>User:</strong>
-    <%= patient_request.user.email %>
+    <strong>Queue Position:</strong>
+    <%=  %>
+  </p>
+  <p>
+    <strong>Name:</strong>
+    <%= patient_request.user.first_name + " " + patient_request.user.last_name %>
   </p>
 
   <p>
