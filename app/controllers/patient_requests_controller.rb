@@ -21,7 +21,9 @@ class PatientRequestsController < ApplicationController
 
   # POST /patient_requests or /patient_requests.json
   def create
+    
     @patient_request = PatientRequest.new(patient_request_params)
+    @queue_position = (@patient_request.pain + 2) 
 
     respond_to do |format|
       if @patient_request.save
