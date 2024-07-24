@@ -1,21 +1,6 @@
 class PatientRequestsController < ApplicationController
   before_action :set_patient_request, only: %i[ show edit update destroy ]
 
-  def set_queue_position(patient_request)
-    # Define weights
-    w_p = 1.0
-    w_i = 2.0
-    w_t = 0.1
-    
-    ## Calculate time factor in hours
-    time_now = Time.current
-    time_difference = time_now - patient_request.created_at
-    time_factor = time_difference / 1.hour
-
-    return (patient_request.pain * w_p) + 5 - (time_factor * w_t)
-
-  end
-
   # GET /patient_requests or /patient_requests.json
   def index
     @patient_requests = PatientRequest.all
@@ -40,8 +25,8 @@ class PatientRequestsController < ApplicationController
     @patient_request = PatientRequest.new(patient_request_params)
     respond_to do |format|
       if @patient_request.save
-        @patient_request.queue_position = set_queue_position(@patient_request)
-        @patient_request.save
+        @patient_request.set_queue_position
+        PatientRequest.rank_patients
         format.html { redirect_to patient_request_url(@patient_request), notice: "Patient request was successfully created." }
         format.json { render :show, status: :created, location: @patient_request }
       else
