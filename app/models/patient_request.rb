@@ -5,6 +5,7 @@
 #  id             :integer          not null, primary key
 #  description    :text
 #  image          :string
+#  injury_type    :string
 #  pain           :integer
 #  queue_position :integer
 #  status         :string
@@ -15,5 +16,4 @@
 class PatientRequest < ApplicationRecord
   belongs_to :user, required: true, class_name: "User", foreign_key: "user_id"
   has_many  :comments, class_name: "Comment", foreign_key: "patient_request_id", dependent: :destroy
-  has_many  :injuries, class_name: "Injury", foreign_key: "patient_request_id", dependent: :destroy
 end
