@@ -38,6 +38,7 @@ class PatientRequest < ApplicationRecord
     time_factor = time_difference / 1.hour
 
     self.queue_position = (self.pain * w_p) + (injury_score * w_i) - (time_factor * w_t)
+    self.save
   end
 
   # Class method to rank patients
@@ -51,6 +52,7 @@ class PatientRequest < ApplicationRecord
     # Assign ranks
     sorted_patients.each_with_index do |patient, index|
       patient.update(rank: index + 1) # Update or add rank attribute
+    
     end
   end
 end
