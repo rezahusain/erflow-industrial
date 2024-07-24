@@ -3,7 +3,7 @@ class PatientRequestsController < ApplicationController
 
   # GET /patient_requests or /patient_requests.json
   def index
-    @patient_requests = PatientRequest.all
+    @patient_requests = PatientRequest.rank_patients
   end
 
   # GET /patient_requests/1 or /patient_requests/1.json
@@ -21,10 +21,12 @@ class PatientRequestsController < ApplicationController
 
   # POST /patient_requests or /patient_requests.json
   def create
+    
     @patient_request = PatientRequest.new(patient_request_params)
-
     respond_to do |format|
       if @patient_request.save
+        @patient_request.set_queue_position
+        PatientRequest.rank_patients
         format.html { redirect_to patient_request_url(@patient_request), notice: "Patient request was successfully created." }
         format.json { render :show, status: :created, location: @patient_request }
       else
@@ -65,6 +67,7 @@ class PatientRequestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def patient_request_params
-      params.require(:patient_request).permit(:user_id, :description, :image, :status, :pain)
+      params.require(:patient_request).permit(:user_id, :description, :image, :status, :pain, :queue_position, :injury_type)
     end
+
 end

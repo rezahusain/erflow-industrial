@@ -17,23 +17,28 @@
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
     <%= form.label :image, style: "display: block" %>
     <%= form.text_field :image %>
   </div>
 
   <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description, required: true %>
   </div>
 
   <div>
     <%= form.label :pain, style: "display: block" %>
-    <%= form.number_field :pain %>
+    <%= form.number_field :pain, in: 1..10, step: 1, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :injury_type, style: "display: block" %>
+    <%= form.select :injury_type, ['minor', 'moderate', 'severe', 'critical'], required: true %>
+  </div>
+
+  <div style="display: none;">
+    <%= form.label :status, style: "display: block"%>
+    <%= form.text_field :status, value: "under review"%>
   </div>
 
   <div>

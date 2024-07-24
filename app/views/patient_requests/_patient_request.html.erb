@@ -1,7 +1,11 @@
 <div id="<%= dom_id patient_request %>">
   <p>
-    <strong>User:</strong>
-    <%= patient_request.user.email %>
+    <strong>Queue Position:</strong>
+    <%= patient_request.rank%>
+  </p>
+  <p>
+    <strong>Name:</strong>
+    <%= patient_request.user.first_name + " " + patient_request.user.last_name %>
   </p>
 
   <p>
@@ -22,6 +26,11 @@
   <p>
     <strong>Pain:</strong>
     <%= patient_request.pain %>
+  </p>
+
+  <p>
+    <strong>Injury Type:</strong>
+    <%= patient_request.injury_type %>
   </p>
 
 </div>
