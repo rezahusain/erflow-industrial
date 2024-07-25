@@ -3,6 +3,17 @@
   <head>
     <title>Rails Template</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+      html, body, #grad {
+        margin: 0px;
+        padding: 0px;
+        background-color: #FBF5F3
+      }
+
+      #nav-grad{
+        background-image: linear-gradient(to right, #449DD1, #143C52);
+      }
+    </style>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= render partial: "shared/cdn_assets"%>
@@ -13,6 +24,8 @@
   <body>
     <%= render partial: "shared/navbar"%>
     <%= render partial: "shared/alerts"%>
-    <%= yield %>
+    <div id="grad">
+      <%= yield %>
+    </div>
   </body>
 </html>
