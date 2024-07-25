@@ -1,11 +1,7 @@
-<h1>Queue</h1>
+<h1 style="text-align: center; padding: 5px;">Emergency Room Queue</h1>
 
-<div id="patient_requests">
+<div class="card-group mb-3" id="patient_requests">
   <% @patient_requests.each do |patient_request| %>
     <%= render patient_request %>
-    <p>
-      <%= link_to "Show this patient request", patient_request %>
-    </p>
   <% end %>
 </div>
-
