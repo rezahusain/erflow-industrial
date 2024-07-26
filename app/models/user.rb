@@ -32,4 +32,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :forms, class_name: "PatientRequest", foreign_key: "user_id", dependent: :destroy
+
+  require 'date'
+
+  def self.display_time
+    current_time = DateTime.now
+    cdt = current_time.strftime "%m/%d/%Y %H:%M"
+    @time = "Current Date and Time: " + cdt
+    @time
+  end
+
 end
