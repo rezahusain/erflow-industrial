@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resources :comments
   resources :patient_requests
+  resources :home
   devise_for :users
-  root to: "patient_requests#index"
+  root to: "home#home", as: 'landing_page'
 
   # This is a blank app! Pick your first screen, build out the RCAV, and go from there. E.g.:
 
