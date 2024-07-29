@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails Template</title>
+    <title>ERFlow</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <style>
-      html, body, #grad {
+      html, body{
         margin: 0px;
         padding: 0px;
-        background-color: white;
+        background-color: #EBEBEB;
+        background-size: cover;
       }
 
       #nav-grad{
@@ -19,13 +20,13 @@
     <%= render partial: "shared/cdn_assets"%>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <!-- Custom styles for this template -->
   </head>
 
   <body>
     <%= render partial: "shared/navbar"%>
     <%= render partial: "shared/alerts"%>
-    <div id="grad">
-      <%= yield %>
-    </div>
+    <%= yield %>
   </body>
 </html>
