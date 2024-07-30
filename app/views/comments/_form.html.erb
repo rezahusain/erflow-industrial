@@ -12,13 +12,12 @@
   <% end %>
 
   <div>
-    <%= form.label :patient_request_id, style: "display: block" %>
-    <%= form.number_field :patient_request_id %>
+    <%= form.hidden_field :patient_request_id, value: params[:id], class: "form-control m-2 input-sm w-100"%>
   </div>
 
   <div>
     <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class: "form-control m-2 input-sm w-100"%>
   </div>
 
   <div>
