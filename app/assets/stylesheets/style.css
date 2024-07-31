@@ -1,0 +1,13 @@
+html, body{
+  height: 100vh;
+  width: 100%;
+  
+}
+
+.p{
+  font-family: lead;
+}
+
+#nav-grad{
+  background-image: linear-gradient(to right, #143C52, #449DD1);
+}

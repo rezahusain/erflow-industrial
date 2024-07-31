@@ -1,14 +1,13 @@
 <div id="<%= dom_id patient_request %>">
-<% if current_user == patient_request.user%>
-  <div class="d-flex justify-content-center m-5">
-    <div class="card border-success text-center" style="width: 16rem;">
-      <h1 class="card-text text-succes p-2"><%= patient_request.rank %></h1>
-      <div class="card-body text-success">
+  <div class="col">
+    <div class="card border text-center h-100">
+      <h1 class="card-text text p-2"><%= patient_request.rank %></h1>
+      <div class="card-body text">
         <strong class="card-title"><%= patient_request.user.first_name + " " + patient_request.user.last_name %></strong>
+      <% if current_user.role == "admin"%>
         <p class="card-text"><%= patient_request.description %></p>
         <p class="card-text">Priority Score: <%= patient_request.queue_position%></p>
       </div>
-      <% if current_user.role == "admin"%>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Status: <%= patient_request.status %></li>
           <li class="list-group-item">Pain: <%= patient_request.pain %></li>
@@ -24,32 +23,4 @@
       <% end %>
     </div>
   </div>
-<% else %>
-  <div class="d-flex justify-content-center m-5">
-    <div class="card text-center" style="width: 16rem;">
-      <h1 class="card-text p-2"><%= patient_request.rank %></h1>
-      <h1><%= patient_request.id %></h1>
-      <div class="card-body">
-        <strong class="card-title"><%= patient_request.user.first_name + " " + patient_request.user.last_name %></strong>
-        <p class="card-text"><%= patient_request.description %></p>
-        <p class="card-text">Priority Score: <%= patient_request.queue_position%></p>
-      </div>
-      <% if current_user.role == "admin"%>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Status: <%= patient_request.status %></li>
-          <li class="list-group-item">Pain: <%= patient_request.pain %></li>
-          <li class="list-group-item">Injury Type: <%= patient_request.injury_type %></li>
-        </ul>
-        <div class="card-body">
-          <% if current_page?( patient_requests_path	) %>
-            <%= link_to "Show more details", patient_request, class: "btn btn-primary m-3"%>
-            <%= link_to "Show comments", comments_path, class: "btn btn-primary"%>
-          <% end %>
-          <img src="<%= patient_request.image %>" class="card-img-top" alt="No Image Provided">
-          <%= link_to "New comment", new_comment_on_request_path(patient_request.id) %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-<% end %>
 </div>

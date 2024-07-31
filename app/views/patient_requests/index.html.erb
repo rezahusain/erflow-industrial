@@ -1,6 +1,8 @@
 <p class="p-4 fw-bold"><%= User.display_time %></p>
-<h1 style="text-align: center; padding: 5px;">Emergency Room Queue</h1>
-<div class="card-group mb-3 border border-light" id="patient_requests">
+<h1 class="text-center p-5">Emergency Room Queue</h1>
+<h2 class="text-center p-5"><%=PatientRequest.get_top%>, you are next!</h2>
+<script type="text/javascript">setInterval()</script>
+<div class="row row-cols-1 row-cols-md-8 g-4">
   <% @patient_requests.each do |patient_request| %>
     <%= render patient_request %>
   <% end %>

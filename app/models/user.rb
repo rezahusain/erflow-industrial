@@ -27,13 +27,21 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+  require 'date'
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :forms, class_name: "PatientRequest", foreign_key: "user_id", dependent: :destroy
-
-  require 'date'
+  
+  validates :role, presence: true
+  validates :dob, presence: true
+  validates :phone, presence: true, uniqueness: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :username, presence: true, uniqueness: true, length: { in: 6..30 }
+  validates :email, presence: true, uniqueness: true
+  validates :zipcode, length: { is: 5 }
 
   def self.display_time
     current_time = DateTime.now

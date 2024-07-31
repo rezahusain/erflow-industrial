@@ -1,39 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="app/assets/stylesheets/style.css">
     <title>ERFlow</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style>
-      html, body{
-        height: 100vh;
-        width: 100%;
-      }
-
-      .p{
-        font-family: lead;
-      }
-
-      #nav-grad{
-        background-image: linear-gradient(to right, #143C52, #449DD1);
-      }
-
-      .glow {
-        font-size: 80px;
-        color: #143C52;
-        text-align: center;
-        animation: glow 1s ease-in-out infinite alternate;
-      }
-
-      @-webkit-keyframes glow {
-        from {
-          text-shadow: 0 0 10px #143C52, 0 0 20px #143C52, 0 0 30px #449DD1, 0 0 40px #449DD1, 0 0 50px #449DD1, 0 0 60px #449DD1, 0 0 70px #449DD1;
-        }
-        
-        to {
-          text-shadow: 0 0 20px #143C52, 0 0 30px #449DD1, 0 0 40px #449DD1, 0 0 50px #449DD1, 0 0 60px #449DD1, 0 0 70px #449DD1, 0 0 80px #449DD1;
-        }
-      }
-    </style>
+  
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= render partial: "shared/cdn_assets"%>
@@ -43,7 +14,7 @@
     <!-- Custom styles for this template -->
   </head>
 
-  <body>
+  <body class="vh-100 overflow-hidden">
     <%= render partial: "shared/navbar"%>
     <%= render partial: "shared/alerts"%>
     <%= yield %>
