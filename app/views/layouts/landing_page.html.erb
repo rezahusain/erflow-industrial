@@ -1,12 +1,12 @@
-<div class="cover-container d-flex w-100 h-100 opacity-75 mx-auto flex-column">
- <main class="main px-3 mt-5" style="text-align:center;">
+<div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
+ <main class="main px-3 mt-5 opacity-50" style="text-align:center;">
     <h1 class="fs-1 pt-5">ERFlow</h1>
     <p class="lead">ERFlow is an application designed to manage ER patients within a queue system.</p>
     <p class="lead">Get queued in today!</p>
     <% if user_signed_in? %>
       <p class="lead">
-        <%= link_to "Form", new_patient_request_path, class: "btn btn-outline-light btn-sm w-40 m-5"%>
-        <%= link_to "Queue", patient_requests_path, class: "btn btn-outline-light btn-sm w-40 m-5"%>
+        <%= link_to "Form", new_patient_request_path, class: "btn btn-outline-light btn-lg w-40 m-5"%>
+        <%= link_to "Queue", patient_requests_path, class: "btn btn-outline-light btn-lg w-40 m-5"%>
       </p>
     <% else %>
       <p class="lead">
@@ -15,8 +15,22 @@
       </p>
     <% end %>
   </main>
-
-  <footer class="mt-auto text-black-50">
-    <p>ERFlow by <a href="https://www.github.com/rezahusain/">Reza Husain</a></p>
-  </footer>
+  <div class="row row-cols-1 row-cols-md-6 g-4 p-3 m-3 justify-content-center">
+    <div class="col">
+      <div class="card h-100 text-primary">
+        <div class="card-body">
+          <h5 class="card-title">Did you know?</h5>
+          <p class="card-text">Millions of Americans miss out on healthcare because of emergency room wait times every year.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 text-primary">
+        <div class="card-body">
+          <h5 class="card-title">Get treated faster!</h5>
+          <p class="card-text">On average, ERFlow has quickened the average emergency room treatment time by 50 percent.</p>
+        </div>
+      </div>
+    </div>
+  </div>  
 </div>
