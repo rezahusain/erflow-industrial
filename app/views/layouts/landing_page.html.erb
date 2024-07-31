@@ -1,17 +1,17 @@
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
- <main class="px-3 mt-5" style="text-align:center;">
-    <h1 class="fs-1">ERFlow</h1>
+<div class="cover-container d-flex w-100 h-100 opacity-75 mx-auto flex-column">
+ <main class="main px-3 mt-5" style="text-align:center;">
+    <h1 class="fs-1 pt-5">ERFlow</h1>
     <p class="lead">ERFlow is an application designed to manage ER patients within a queue system.</p>
     <p class="lead">Get queued in today!</p>
     <% if user_signed_in? %>
       <p class="lead">
-        <%= link_to "Form", new_patient_request_path, class: "btn btn-outline-primary btn-sm w-40 m-5"%>
-        <%= link_to "Queue", patient_requests_path, class: "btn btn-outline-primary btn-sm w-40 m-5"%>
+        <%= link_to "Form", new_patient_request_path, class: "btn btn-outline-light btn-sm w-40 m-5"%>
+        <%= link_to "Queue", patient_requests_path, class: "btn btn-outline-light btn-sm w-40 m-5"%>
       </p>
     <% else %>
       <p class="lead">
-        <%= link_to "Sign in", new_user_session_path, class:"btn btn-outline-primary btn-lg w-40 m-5"%>
-        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-primary btn-lg w-40 m-5"%>
+        <%= link_to "Sign in", new_user_session_path, class:"btn btn-outline-light btn-lg w-40 m-5"%>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-light btn-lg w-40 m-5"%>
       </p>
     <% end %>
   </main>
