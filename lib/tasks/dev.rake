@@ -2,8 +2,9 @@ desc "Fill the database tables with some sample data"
 task({ :sample_data => :environment }) do
   User.delete_all
   PatientRequest.delete_all
+  Comment.delete_all
 
-  12.times do
+  24.times do
     name = Faker::Name.first_name
     User.create(
       email: "#{name}@example.com",

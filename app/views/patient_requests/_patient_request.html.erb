@@ -1,11 +1,15 @@
 <div id="<%= dom_id patient_request %>">
-  <div class="col">
-    <div class="card border text-center h-100">
+  <div class="col flex-column">
+    <div class="card border mx-auto text-center main opacity-50">
       <h1 class="card-text text p-2"><%= patient_request.rank %></h1>
       <div class="card-body text">
-        <strong class="card-title"><%= patient_request.user.first_name + " " + patient_request.user.last_name %></strong>
+        <strong class="card-title"><%= patient_request.user.first_name + " " + patient_request.user.last_name %></strong><br>
+        <% if current_page?( patient_requests_path	) && current_user == patient_request.user %>
+          <%= link_to "View your details", patient_request, class: "btn btn-outline-light m-3"%>
+          <%= link_to "View your comments", comments_path, class: "btn btn-outline-light"%>
+        <% end %>
       <% if current_user.role == "admin"%>
-        <p class="card-text"><%= patient_request.description %></p>
+        <p class="card-text overflow-auto"><%= patient_request.description %></p>
         <p class="card-text">Priority Score: <%= patient_request.queue_position%></p>
       </div>
         <ul class="list-group list-group-flush">
@@ -15,10 +19,10 @@
         </ul>
         <div class="card-body">
           <% if current_page?( patient_requests_path	) %>
-            <%= link_to "Show more details", patient_request, class: "btn btn-primary m-3"%>
-            <%= link_to "Show comments", comments_path, class: "btn btn-primary"%>
+            <%= link_to "View your details", patient_request, class: "btn btn-outline-light m-3"%>
+            <%= link_to "View your comments", comments_path, class: "btn btn-outline-light"%>
+            <img src="<%= patient_request.image %>" class="card-img-top" width="252" height="252" alt="No Image Provided"/>
           <% end %>
-          <img src="<%= patient_request.image %>" class="card-img-top" alt="No Image Provided">
         </div>
       <% end %>
     </div>
