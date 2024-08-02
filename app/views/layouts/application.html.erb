@@ -1,31 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails Template</title>
+    <link rel="stylesheet" href="app/assets/stylesheets/style.css">
+    <title>ERFlow</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style>
-      html, body, #grad {
-        margin: 0px;
-        padding: 0px;
-        background-color: white;
-      }
-
-      #nav-grad{
-        background-image: linear-gradient(to right, #143C52, #449DD1);
-      }
-    </style>
+  
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= render partial: "shared/cdn_assets"%>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <!-- Custom styles for this template -->
   </head>
 
   <body>
     <%= render partial: "shared/navbar"%>
     <%= render partial: "shared/alerts"%>
-    <div id="grad">
-      <%= yield %>
-    </div>
+    <%= yield %>
+    <%= render partial: "shared/footer"%>
   </body>
 </html>

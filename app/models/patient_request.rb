@@ -18,6 +18,8 @@ class PatientRequest < ApplicationRecord
   belongs_to :user, required: true, class_name: "User", foreign_key: "user_id"
   has_many  :comments, class_name: "Comment", foreign_key: "patient_request_id", dependent: :destroy
 
+  validates :description, presence: true, length: {maximum: 1000, too_long: "%{count} characters is the maximum allowed"}
+
   INJURY_SCORES = {
     'minor' => 2,
     'moderate' => 5,
@@ -54,5 +56,13 @@ class PatientRequest < ApplicationRecord
       patient.update(rank: index + 1) # Update or add rank attribute
     
     end
+  end
+
+  def self.get_top
+
+    top_patient = all.order(rank: :asc).first.user.first_name
+
+    return top_patient
+
   end
 end

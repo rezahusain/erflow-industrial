@@ -8,6 +8,7 @@ class PatientRequestsController < ApplicationController
 
   # GET /patient_requests/1 or /patient_requests/1.json
   def show
+    
   end
 
   # GET /patient_requests/new
@@ -21,7 +22,6 @@ class PatientRequestsController < ApplicationController
 
   # POST /patient_requests or /patient_requests.json
   def create
-    
     @patient_request = PatientRequest.new(patient_request_params)
     respond_to do |format|
       if @patient_request.save

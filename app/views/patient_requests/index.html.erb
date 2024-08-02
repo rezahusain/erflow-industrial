@@ -1,7 +1,13 @@
-<h1 style="text-align: center; padding: 5px;">Emergency Room Queue</h1>
-
-<div class="card-group mb-3" id="patient_requests">
-  <% @patient_requests.each do |patient_request| %>
-    <%= render patient_request %>
-  <% end %>
+<div class="d-flex justify-content-between align-items-center p-3 m-3">
+  <p class="fw-bold text-primary"><%= User.display_time %></p>
+  <h1 class="text-center text-primary">Emergency Room Queue</h1>
+  <h2 class="text-center text-primary border border-primary rounded p-3"><%=PatientRequest.get_top%>, you are next!</h2>
+</div>
+<script type="text/javascript">setInterval()</script>
+<div class="container">
+  <div class="row d-flex">
+    <% @patient_requests.each do |patient_request| %>
+      <%= render patient_request %>
+    <% end %>
+  </div>
 </div>
