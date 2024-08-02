@@ -6,7 +6,7 @@
         <strong class="card-title"><%= patient_request.user.first_name + " " + patient_request.user.last_name %></strong><br>
         <% if current_page?( patient_requests_path	) && current_user == patient_request.user %>
           <%= link_to "View your details", patient_request, class: "btn btn-outline-light m-3"%>
-          <%= link_to "View your comments", comments_path, class: "btn btn-outline-light"%>
+          <%= link_to "View your comments", patient_request_comments_path(patient_request), class: "btn btn-outline-light"%>
         <% end %>
       <% if current_user.role == "admin"%>
         <p class="card-text overflow-auto"><%= patient_request.description %></p>
@@ -20,7 +20,7 @@
         <div class="card-body">
           <% if current_page?( patient_requests_path	) %>
             <%= link_to "View your details", patient_request, class: "btn btn-outline-light m-3"%>
-            <%= link_to "View your comments", comments_path, class: "btn btn-outline-light"%>
+            <%= link_to "View your comments", patient_request_comments_path(patient_request), class: "btn btn-outline-light"%>
             <img src="<%= patient_request.image %>" class="card-img-top" width="252" height="252" alt="No Image Provided"/>
           <% end %>
         </div>

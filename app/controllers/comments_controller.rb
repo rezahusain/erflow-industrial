@@ -1,9 +1,10 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :set_patient_request, only: %i[ create new index ]
 
   # GET /comments or /comments.json
   def index
-    @comments = Comment.all
+    @comments = @patient_request.comments
   end
 
   # GET /comments/1 or /comments/1.json
@@ -12,7 +13,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = Comment.new
+    @comment = @patient_request.comments.new
     
   end
 
@@ -22,7 +23,7 @@ class CommentsController < ApplicationController
 
   # POST /comments or /comments.json
   def create
-    @comment = Comment.new(comment_params)
+    @comment = @patient_request.comments.new(comment_params)
 
     respond_to do |format|
       if @comment.save
@@ -63,6 +64,11 @@ class CommentsController < ApplicationController
     def set_comment
       @comment = Comment.find(params[:id])
     end
+
+    def set_patient_request
+      @patient_request = PatientRequest.find(params[:patient_request_id])
+    end
+
 
     # Only allow a list of trusted parameters through.
     def comment_params

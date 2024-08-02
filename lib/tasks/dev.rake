@@ -33,4 +33,12 @@ task({ :sample_data => :environment }) do
       injury_type: ['minor', 'moderate', 'severe', 'critical'].sample
     )
   end
+
+  forms = PatientRequest.all
+
+  forms.each do |form|
+    form.comments.create(
+      body: Faker::Markdown.emphasis
+    )
+  end
 end

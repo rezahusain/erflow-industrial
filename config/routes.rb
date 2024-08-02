@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :comments
-  resources :patient_requests
+  resources :patient_requests do
+    resources :comments
+  end
   resources :home
   devise_for :users
   root to: "home#home", as: 'landing_page'
