@@ -20,3 +20,62 @@ footer{
     opacity: 0;
   }
 }
+
+/* General Styles */
+@media (max-width: 767px) {
+  .fs-1 {
+    font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+  .fs-2 {
+    font-size: 1.5rem;
+  }
+  .fs-3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* General Styles */
+@media (max-width: 767px) {
+  .fs-1 {
+    font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+  .fs-2 {
+    font-size: 1.5rem;
+  }
+  .fs-3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Infographic */
+.infographic .step-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.infographic .step-title {
+  font-size: 1.1rem;
+}
+
+.infographic p {
+  font-size: 0.9rem;
+}
+
+/* Video Banner */
+.demo-banner .embed-responsive {
+  position: relative;
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.demo-banner video {
+  width: 100%;
+  height: auto;
+}
