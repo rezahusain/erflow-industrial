@@ -69,7 +69,6 @@ class CommentsController < ApplicationController
       @patient_request = PatientRequest.find(params[:patient_request_id])
     end
 
-
     # Only allow a list of trusted parameters through.
     def comment_params
       params.require(:comment).permit(:patient_request_id, :body)
