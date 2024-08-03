@@ -1,12 +1,11 @@
 <div id="<%= dom_id comment %>">
-  <p>
-    <strong>Patient request:</strong>
-    <%= comment.patient_request_id %>
-  </p>
-
-  <p>
-    <strong>Body:</strong>
-    <%= comment.body %>
-  </p>
-
+  <div class="d-flex justify-content-center p-3 m-3">
+      <div class="card p-3" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= comment.form.user.first_name %></h5>
+          <p class="card-text"> <%= comment.body %></p>
+          <%= link_to "Show this comment", [@patient_request, @comment], class: "btn btn-primary"%>
+        </div>
+      </div>
+  </div>
 </div>

@@ -1,34 +1,34 @@
 class CommentsController < ApplicationController
+  before_action :set_patient_request
   before_action :set_comment, only: %i[ show edit update destroy ]
-  before_action :set_patient_request, only: %i[ create new index ]
 
-  # GET /comments or /comments.json
+  # GET /patient_requests/:patient_request_id/comments
   def index
     @comments = @patient_request.comments
   end
 
-  # GET /comments/1 or /comments/1.json
+  # GET /patient_requests/:patient_request_id/comments/:id
   def show
   end
 
-  # GET /comments/new
+  # GET /patient_requests/:patient_request_id/comments/new
   def new
     @comment = @patient_request.comments.new
-    
   end
 
-  # GET /comments/1/edit
+  # GET /patient_requests/:patient_request_id/comments/:id/edit
   def edit
   end
 
-  # POST /comments or /comments.json
+  # POST /patient_requests/:patient_request_id/comments
   def create
     @comment = @patient_request.comments.new(comment_params)
+    @comment.form.user = current_user # Ensure the comment is associated with the current user
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to comment_url(@comment), notice: "Comment was successfully created." }
-        format.json { render :show, status: :created, location: @comment }
+        format.html { redirect_to [@patient_request, @comment], notice: "Comment was successfully created." }
+        format.json { render :show, status: :created, location: [@patient_request, @comment] }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -36,12 +36,12 @@ class CommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /comments/1 or /comments/1.json
+  # PATCH/PUT /patient_requests/:patient_request_id/comments/:id
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to comment_url(@comment), notice: "Comment was successfully updated." }
-        format.json { render :show, status: :ok, location: @comment }
+        format.html { redirect_to [@patient_request, @comment], notice: "Comment was successfully updated." }
+        format.json { render :show, status: :ok, location: [@patient_request, @comment] }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -49,28 +49,26 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1 or /comments/1.json
+  # DELETE /patient_requests/:patient_request_id/comments/:id
   def destroy
-    @comment.destroy!
-
+    @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: "Comment was successfully destroyed." }
+      format.html { redirect_to patient_request_comments_url(@patient_request), notice: "Comment was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
 
-    def set_patient_request
-      @patient_request = PatientRequest.find(params[:patient_request_id])
-    end
+  def set_comment
+    @comment = @patient_request.comments.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def comment_params
-      params.require(:comment).permit(:patient_request_id, :body)
-    end
+  def set_patient_request
+    @patient_request = PatientRequest.find(params[:patient_request_id])
+  end
+
+  def comment_params
+    params.require(:comment).permit(:body)
+  end
 end

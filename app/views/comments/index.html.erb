@@ -1,13 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Comments</h1>
+<h1 class="text-center">Comments</h1>
 
 <div id="comments">
   <% @comments.each do |comment| %>
-    <%= render comment %>
-    <p>
-      <%= link_to "Show this comment", [@patient_request, comment] %>
-    </p>
+    <%= render partial: 'comments/comment', locals: { comment: comment, patient_request: @patient_request } %>
   <% end %>
 </div>
 

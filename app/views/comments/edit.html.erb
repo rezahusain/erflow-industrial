@@ -1,10 +1,10 @@
 <h1>Editing comment</h1>
 
-<%= render "form", comment: @comment %>
+<%= render "form", comment: @comment, patient_request: @patient_request %>
 
 <br>
 
 <div>
-  <%= link_to "Show this comment", @comment %> |
-  <%= link_to "Back to comments", comments_path %>
+  <%= link_to "Show this comment", [@patient_request, @comment] %> |
+  <%= link_to "Back to comments", patient_request_comments_path(@patient_request) %>
 </div>
