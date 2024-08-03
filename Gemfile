@@ -6,6 +6,7 @@ ruby "3.2.1"
 gem "devise"
 gem "devise-i18n"
 gem "devise-bootstrap5"
+gem 'simple_form'
 
 gem "aws-sdk-s3", require: false
 
