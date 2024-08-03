@@ -17,4 +17,4 @@ databases: # this section provides some additional database configuration
     plan: free
     databaseName: db
     user: db
-    db ipAllowList: []
+    ipAllowList: []
