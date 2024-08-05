@@ -42,11 +42,11 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :zipcode, length: { is: 5 }
 
-  #def self.display_time
-    #current_time = DateTime.now
-    #cdt = current_time.strftime "%m/%d/%Y %H:%M"
-    #@time = "Current Date and Time: " + cdt
-    #@time
-  #end
+  def self.display_time
+    current_time = DateTime.now
+    cdt = current_time.strftime "%m/%d/%Y %H:%M"
+    @time = "Current Date and Time: " + cdt
+    @time
+  end
 
 end
