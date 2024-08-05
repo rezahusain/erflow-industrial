@@ -1,11 +1,9 @@
 <p style="color: green"><%= notice %></p>
-
 <h1 class="text-center">Comments</h1>
-
-<div id="comments">
+<div class="d-flex flex-column align-items-center">
   <% @comments.each do |comment| %>
     <%= render partial: 'comments/comment', locals: { comment: comment, patient_request: @patient_request } %>
   <% end %>
+  <%= link_to "New comment", new_patient_request_comment_path(@patient_request), class: "btn btn-outline-primary mx-auto btn-lg mt-4 mb-4"%>
+  <%= link_to "View Details", patient_request_path(@patient_request), class: "btn btn-outline-primary mx-auto btn-lg mt-4 mb-4"%>
 </div>
-
-<%= link_to "New comment", new_patient_request_comment_path(@patient_request) %>

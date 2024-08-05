@@ -1,7 +1,7 @@
 <%= form_with(model: patient_request) do |form| %>
   <div class="container-fluid h-100 m-5 p-5 rounded-4">
       <div class="d-flex flex-column align-items-center">
-        <h1 class="h1">New form</h1>
+        <h1 class="h1">Form</h1>
         <% if patient_request.errors.any? %>
           <div style="color: red">
             <h2><%= pluralize(patient_request.errors.count, "error") %> prohibited this patient_request from being saved:</h2>
@@ -45,9 +45,9 @@
         </div>
 
       <div>
-        <%= form.button :submit, class: "btn btn-outline-primary btn-sm mt-4"%>
+        <%= form.button :submit, class: "btn btn-outline-primary btn-lg mt-4"%>
       </div>
-      <%= link_to "Return to queue", patient_requests_path, class: "btn btn-outline-primary btn-sm mt-4 mb-4"%>
+      <%= link_to "Go to queue", patient_requests_path, class: "btn btn-outline-primary btn-lg mt-4 mb-4"%>
     </div>
   </div>
 <% end %>

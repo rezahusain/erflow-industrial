@@ -10,14 +10,14 @@
       </ul>
     </div>
   <% end %>
-
+<div class="d-flex flex-column align-items-center">
   <div>
-    <%= form.label :body, style: "display: block" %>
     <%= form.text_area :body, class: "form-control m-2 input-sm w-100"%>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.button :submit, class: "btn btn-outline-primary btn-lg mt-4"%>
   </div>
+  <%= link_to "View Comments", patient_request_comments_path, class: "btn btn-outline-primary mx-auto btn-lg mt-4 mb-4" %>
+<div>
 <% end %>
-

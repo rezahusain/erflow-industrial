@@ -4,8 +4,8 @@
         <div class="card-body">
           <h5 class="card-title"><%= comment.form.user.first_name %></h5>
           <p class="card-text"> <%= comment.body %></p>
-          <%= link_to "Show this comment", [@patient_request, @comment], class: "btn btn-primary"%>
         </div>
+        <div class="card-footer">Created at: <%=comment.created_at%></div>
       </div>
   </div>
 </div>
