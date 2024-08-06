@@ -3,7 +3,7 @@ class PatientRequestsController < ApplicationController
 
   # GET /patient_requests or /patient_requests.json
   def index
-    @patient_requests = PatientRequest.rank_patients
+    @patient_requests = PatientRequest.rank_patients.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /patient_requests/1 or /patient_requests/1.json
