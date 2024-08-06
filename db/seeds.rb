@@ -5,7 +5,3 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-Injury.create(name: "minor", priority: 2)
-Injury.create(name: "moderate", priority: 5)
-Injury.create(name: "severe", priority: 8)
-Injury.create(name: "critical", priority: 10)

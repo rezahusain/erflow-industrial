@@ -3,11 +3,13 @@
   <h1 class="text-center text-primary">Emergency Room Queue</h1>
   <h2 class="text-center text-primary border border-primary rounded p-3"><%=PatientRequest.get_top%>, you are next!</h2>
 </div>
-<script type="text/javascript">setInterval()</script>
 <div class="container">
   <div class="row d-flex">
     <% @patient_requests.each do |patient_request| %>
       <%= render patient_request %>
     <% end %>
+    <div class="d-flex justify-content-center m-3">
+      <%= will_paginate @forms, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+    </div>
   </div>
 </div>
