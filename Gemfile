@@ -9,10 +9,8 @@ gem "devise-bootstrap5"
 gem "simple_form"
 gem 'will_paginate', '~> 3.3'
 gem 'will_paginate-bootstrap4'
-
-
-
 gem "aws-sdk-s3", require: false
+
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
@@ -81,7 +79,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
 # AppDev Gems
 # ===========
 gem "appdev_support"
