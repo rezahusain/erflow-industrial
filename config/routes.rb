@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: "home#home", as: 'landing_page'
 
   get "comments/:id/new" => "comments#new", as: :new_comment_on_request
+  get "contact" => "home#contact", as: :contact
 
   # This is a blank app! Pick your first screen, build out the RCAV, and go from there. E.g.:
 

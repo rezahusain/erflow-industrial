@@ -2,17 +2,18 @@
 #
 # Table name: patient_requests
 #
-#  id             :integer          not null, primary key
-#  description    :text
-#  image          :string
-#  injury_type    :string
-#  pain           :integer
-#  queue_position :integer
-#  rank           :integer
-#  status         :string
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  user_id        :integer
+#  id                :integer          not null, primary key
+#  description       :text
+#  image             :string
+#  injury_type       :string
+#  notification_sent :boolean
+#  pain              :integer
+#  queue_position    :integer
+#  rank              :integer
+#  status            :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  user_id           :integer
 #
 class PatientRequest < ApplicationRecord
   belongs_to :user, required: true, class_name: "User", foreign_key: "user_id"
@@ -60,9 +61,13 @@ class PatientRequest < ApplicationRecord
 
   def self.get_top
 
-    top_patient = all.order(rank: :asc).first.user.first_name
+    top_patient = all.order(rank: :asc).first.user
 
     return top_patient
 
   end
+
+  private
+
+
 end
