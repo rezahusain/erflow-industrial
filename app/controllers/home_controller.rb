@@ -4,8 +4,4 @@ class HomeController < ApplicationController
     render "layouts/landing_page"
   end
 
-  def contact
-    render "layouts/contact_page"
-  end
-
 end
