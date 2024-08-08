@@ -28,7 +28,7 @@ After setting up the environment variables and database configuration, run the f
 ```rails db:setup```
 
 # ERD
-![Image 7-19-24 at 2 16 PM](https://github.com/user-attachments/assets/f961fd9d-0ceb-4034-b3bd-377917acced1)
+<img width="1440" alt="Screenshot 2024-07-29 at 9 41 49 AM" src="https://github.com/user-attachments/assets/d336c2f6-c93f-4d68-9d54-d13b026ab8d0">
 
 # FAQ
 Q: Who can I contact for support? <br>
