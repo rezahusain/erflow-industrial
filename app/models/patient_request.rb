@@ -69,8 +69,4 @@ class PatientRequest < ApplicationRecord
 
   private
 
-  def send_patient_notification
-    NotifierMailer.with(user: PatientRequest.get_top).position_notifier.deliver_now
-  end
-
 end
