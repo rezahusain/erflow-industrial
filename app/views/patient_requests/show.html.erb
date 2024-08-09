@@ -7,19 +7,17 @@
       <li class="list-group-item">Pain: <%= @patient_request.pain %></li>
       <li class="list-group-item">Injury Type: <%= @patient_request.injury_type %></li>
     </ul>
-    <p class="card-text overflow-auto"><%= link_to "View comments", patient_request_comments_path(@patient_request), class: "btn btn-primary btn-lg mt-4"%>
-    </p>
-    <!-- Button trigger modal -->
-    <p class="card-text overflow-auto">
+    <div class="d-flex justify-content-center p-3">
+      <!-- Button trigger modal -->
       <%= render partial: "shared/modal", locals: {image: @patient_request.image}%>
-      <button class="btn btn-primary btn-lg mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        View Image
-      </button>
-    </p>
+      <p class="card-text overflow-auto m-2">
+        <button class="btn btn-primary btn-lg bg-primary mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          View Patient Image
+        </button>
+      </p>
+      <p class="card-text overflow-auto m-2"><%= link_to "View Notes", patient_request_comments_path(@patient_request), class: "btn btn-primary btn-lg mt-4"%>
+      </p>
+      <p class="card-text overflow-auto m-2"><%= link_to "Return to Queue", patient_requests_path, class: "btn btn-primary btn-lg mt-4"%></p>
+    </div>
   </div>
-</div>
-
-<div class="d-flex justify-content-evenly p-5 m-5">
-  <%= link_to "Queue", patient_requests_path, class: "btn btn-primary btn-lg mt-4"%>
-  <%= button_to "Leave the queue", @patient_request, method: :delete, class: "btn btn-primary btn-lg mt-4"%>
 </div>

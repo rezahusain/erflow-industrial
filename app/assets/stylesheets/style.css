@@ -23,7 +23,6 @@ footer{
   max-height: 80px;
   flex: 0 0 50px;/*or just height:50px;*/
   margin-top: auto;
-  min-height: 50px;
 
 }
 

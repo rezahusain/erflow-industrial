@@ -8,7 +8,7 @@
         <div class="card-body">
           <% if current_page?( patient_requests_path	) %>
             <%= link_to "View details", patient_request, class: "btn btn-outline-light m-3"%>
-            <%= link_to "View comments", patient_request_comments_path(patient_request), class: "btn btn-outline-light"%>
+            <%= button_to "Leave the queue", @patient_request, method: :delete, class: "btn btn-outline-light m-3"%>
           <% end %>
         </div>
       <% end %>
