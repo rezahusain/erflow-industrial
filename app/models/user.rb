@@ -37,7 +37,6 @@ class User < ApplicationRecord
   validates :dob, presence: true
   validates :phone, presence: true, uniqueness: true
   validates :first_name, presence: true
-  validates :last_name, presence: true
   validates :username, presence: true, uniqueness: true, length: { in: 6..30 }
   validates :email, presence: true, uniqueness: true
   validates :zipcode, length: { is: 5 }
