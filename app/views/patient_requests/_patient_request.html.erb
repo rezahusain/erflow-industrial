@@ -1,6 +1,6 @@
 <div id="<%= dom_id patient_request %>">
   <div class="col flex-column">
-    <div class="card border mx-auto text-center main opacity-50">
+    <div class="card border mx-auto text-center main">
       <h1 class="card-text text p-2"><%= patient_request.rank %></h1>
       <div class="card-body text">
         <strong class="card-title"><%= patient_request.user.first_name + " " + patient_request.user.last_name %></strong><br>
@@ -8,7 +8,7 @@
         <div class="card-body">
           <% if current_page?( patient_requests_path	) %>
             <%= link_to "View details", patient_request, class: "btn btn-outline-light m-3"%>
-            <%= link_to "View comments", patient_request_comments_path(patient_request), class: "btn btn-outline-light"%>
+            <%= button_to "Leave the queue", @patient_request, method: :delete, class: "btn btn-outline-light m-3"%>
           <% end %>
         </div>
       <% end %>

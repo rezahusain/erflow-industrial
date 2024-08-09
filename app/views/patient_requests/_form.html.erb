@@ -1,53 +1,50 @@
-<%= form_with(model: patient_request) do |form| %>
-  <div class="container-fluid h-100 m-5 p-5 rounded-4">
-      <div class="d-flex flex-column align-items-center">
-        <h1 class="h1">Form</h1>
-        <% if patient_request.errors.any? %>
-          <div style="color: red">
-            <h2><%= pluralize(patient_request.errors.count, "error") %> prohibited this patient_request from being saved:</h2>
-
-            <ul>
-              <% patient_request.errors.each do |error| %>
-                <li><%= error.full_message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-        <div style="display: none;">
-          <%= form.label :user_id, style: "display: block" %>
-          <%= form.number_field :user_id, value: current_user.id, class: "form-control m-2 input-sm w-100" %>
-        </div>
-
-        <div>
-          <%= form.label :image, style: "display: block" %>
-          <%= form.text_field :image, class: "form-control m-2 input-sm w-100" %>
-        </div>
-
-        <div>
-          <%= form.label :description, style: "display: block" %>
-          <%= form.text_area :description, required: true, class: "form-control m-2 input-sm w-100"%>
-        </div>
-
-        <div>
-          <%= form.label :pain, style: "display: block" %>
-          <%= form.number_field :pain, in: 1..10, step: 1, required: true, class: "form-control m-2 input-sm w-100" %>
-        </div>
-
-        <div>
-          <%= form.label :injury_type, style: "display: block" %>
-          <%= form.select :injury_type, ['minor', 'moderate', 'severe', 'critical'], required: true%>
-        </div>
-
-        <div style="display: none;">
-          <%= form.label :status, style: "display: block"%>
-          <%= form.text_field :status, value: "under review"%>
-        </div>
-
-      <div>
-        <%= form.button :submit, class: "btn btn-outline-primary btn-lg mt-4"%>
+<%= form_with(model: patient_request, class: "container-fluid d-flex justify-content-center align-items-center vh-75 mt-5 mb-5") do |form| %>
+  <div class="card w-50 p-4 shadow">
+    <h1 class="card-title text-center mb-4">Patient Request</h1>
+    <% if patient_request.errors.any? %>
+      <div class="alert alert-danger">
+        <h2><%= pluralize(patient_request.errors.count, "error") %> prohibited this patient request from being saved:</h2>
+        <ul>
+          <% patient_request.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
       </div>
-      <%= link_to "Go to queue", patient_requests_path, class: "btn btn-outline-primary btn-lg mt-4 mb-4"%>
+    <% end %>
+
+    <div style="display: none;">
+      <%= form.label :user_id %>
+      <%= form.number_field :user_id, value: current_user.id, class: "form-control m-2 input-sm w-100" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :image %>
+      <%= form.text_field :image, class: "form-control m-2 input-sm w-50" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :description %>
+      <%= form.text_area :description, required: true, class: "form-control m-2 input-sm w-50" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :pain %>
+      <%= form.number_field :pain, in: 1..10, step: 1, required: true, class: "form-control m-2 input-sm w-25" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :injury_type %>
+      <%= form.select :injury_type, ['minor', 'moderate', 'severe', 'critical'], required: true, class: "form-control m-2 input-sm w-100" %>
+    </div>
+
+    <div style="display: none;">
+      <%= form.label :status %>
+      <%= form.text_field :status, value: "under review", class: "form-control m-2 input-sm w-100" %>
+    </div>
+
+    <div class="text-center">
+      <%= form.submit "Submit", class: "btn btn-primary btn-lg btn-block mt-4" %>
+      <%= link_to "Go to queue", patient_requests_path, class: "btn btn-primary btn-lg btn-block mt-4" %>
     </div>
   </div>
 <% end %>

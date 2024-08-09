@@ -1,7 +1,7 @@
-<div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
-  <main class="main px-3 mt-5 opacity-50" style="text-align:center;">
-    <h1 class="fs-1 pt-5">ERFlow</h1>
-    <p class="lead">ERFlow is an application designed to manage ER patients within a queue system.</p>      
+<div class="cover-container d-flex w-100 h-100 mx-auto flex-column" style="background-color: white;">
+  <main class="main px-3 mt-5" style="text-align:center;">
+    <h1 class="fs-1 pt-5" style="color: #FFFFFF;">ERFlow</h1>
+    <p class="lead" style="color: #F0F0F0;">ERFlow is an application designed to manage ER patients within a queue system.</p>      
     <% if user_signed_in? %>
       <p class="lead">
         <%= link_to "Form", new_patient_request_path, class: "btn btn-outline-light btn-lg w-40 m-3"%>
@@ -17,78 +17,77 @@
   
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 p-3 m-3 justify-content-center">
     <div class="col">
-      <div class="card h-100 text-primary">
+      <div class="card h-100 border-0 shadow-sm" style="background-color: #F0F8F8;">
         <div class="card-body">
-          <h5 class="card-title">Did you know?</h5>
-          <p class="card-text">Millions of Americans miss out on healthcare because of emergency room wait times every year.</p>
+          <h5 class="card-title" style="color: #00352F;">Did you know?</h5>
+          <p class="card-text" style="color: #333;">Millions of Americans miss out on healthcare because of emergency room wait times every year.</p>
         </div>
       </div>
     </div>
     <div class="col">
-      <div class="card h-100 text-primary">
+      <div class="card h-100 border-0 shadow-sm" style="background-color: #F0F8F8;">
         <div class="card-body">
-          <h5 class="card-title">Experience Faster, Better Care with ERFlow!</h5>
-          <p class="card-text">Tired of long waits in the emergency room? ERFlow prioritizes your needs to ensure you receive timely and efficient treatment.</p>
+          <h5 class="card-title" style="color: #00352F;">Experience Faster, Better Care with ERFlow!</h5>
+          <p class="card-text" style="color: #333;">Tired of long waits in the emergency room? ERFlow prioritizes your needs to ensure you receive timely and efficient treatment.</p>
         </div>
       </div>
     </div>
     <div class="col">
-      <div class="card h-100 text-primary">
+      <div class="card h-100 border-0 shadow-sm" style="background-color: #F0F8F8;">
         <div class="card-body">
-          <h5 class="card-title">Need immediate attention?</h5>
-          <p class="card-text">Check in with us and let ERFlow guide you to the care you deserve. Your health is our priority!</p>
+          <h5 class="card-title" style="color: #00352F;">Need immediate attention?</h5>
+          <p class="card-text" style="color: #333;">Check in with us and let ERFlow guide you to the care you deserve. Your health is our priority!</p>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Infographic Section -->
-  <section class="infographic mt-5" style="background-color: #f8f9fa; padding: 40px 0;">
-    <h2 class="fs-2 text-center mb-3 pb-3">How to Use ERFlow</h2>
+  <section class="infographic m-5" style="background-color: #F0F4F3; padding: 40px 0;">
+    <h2 class="fs-2 text-center mb-3 pb-3" style="color: #00352F;">How to Use ERFlow</h2>
     <div class="container">
       <div class="row text-center">
         <div class="col-12 col-md-6 col-lg-3 mb-4">
-          <div class="step-icon bg-primary text-white rounded-circle mx-auto mb-2">
+          <div class="step-icon text-white rounded-circle mx-auto mb-2">
             <span class="fs-3">1</span>
           </div>
-          <h4 class="step-title">Sign Up</h4>
-          <p>Register for an ERFlow account to start managing your ER visits.</p>
+          <h4 class="step-title" style="color: #00352F;">Sign Up</h4>
+          <p style="color: #555;">Register for an ERFlow account to start managing your ER visits.</p>
         </div>
         <div class="col-12 col-md-6 col-lg-3 mb-4">
-          <div class="step-icon bg-success text-white rounded-circle mx-auto mb-2">
+          <div class="step-icon text-white rounded-circle mx-auto mb-2">
             <span class="fs-3">2</span>
           </div>
-          <h4 class="step-title">Submit Your Request</h4>
-          <p>Fill out the form with your details and submit your request for ER care.</p>
+          <h4 class="step-title" style="color: #00352F;">Submit Your Request</h4>
+          <p style="color: #555;">Fill out the form with your details and submit your request for ER care.</p>
         </div>
         <div class="col-12 col-md-6 col-lg-3 mb-4">
-          <div class="step-icon bg-warning text-white rounded-circle mx-auto mb-2">
+          <div class="step-icon text-white rounded-circle mx-auto mb-2">
             <span class="fs-3">3</span>
           </div>
-          <h4 class="step-title">Check Your Queue Status</h4>
-          <p>Monitor your position in the queue and get updates on your status.</p>
+          <h4 class="step-title" style="color: #00352F;">Check Your Queue Status</h4>
+          <p style="color: #555;">Monitor your position in the queue and get updates on your status.</p>
         </div>
         <div class="col-12 col-md-6 col-lg-3 mb-4">
-          <div class="step-icon bg-danger text-white rounded-circle mx-auto mb-2">
+          <div class="step-icon text-white rounded-circle mx-auto mb-2">
             <span class="fs-3">4</span>
           </div>
-          <h4 class="step-title">Receive Timely Care</h4>
-          <p>Get prioritized attention and prompt care based on your needs.</p>
+          <h4 class="step-title" style="color: #00352F;">Receive Timely Care</h4>
+          <p style="color: #555;">Get prioritized attention and prompt care based on your needs.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Banner Section for Demo -->
-  <section class="demo-banner mt-5" style="text-align:center; background-color: #e9ecef; padding: 40px 0;">
-  <h2 class="fs-2">See ERFlow in Action!</h2>
-  <p class="lead">Watch the demo below to see how ERFlow transforms ER patient management.</p>
-  <div class="container">
-    <video controls loop style="width: 100%; height: auto;">
-      <source src="/videos/demo.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</section>
-
+  <section class="demo-banner m-5" style="text-align:center; background-color: #F0F4F3; padding: 40px 0;">
+    <h2 class="fs-2" style="color: #00352F;">See ERFlow in Action!</h2>
+    <p class="lead" style="color: #555;">Watch the demo below to see how ERFlow transforms ER patient management.</p>
+    <div class="container">
+      <video controls loop style="width: 100%; height: auto;">
+        <source src="/videos/demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
 </div>

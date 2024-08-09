@@ -1,12 +1,29 @@
+
+
+
+body{
+  position: relative;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
 .main{
-  background-color: blue;
+  background-color: #4d004d;
   color: white;
   box-shadow: 0 30px 40px rgba(0,0,0,.1);
 }
 
 footer{
+  width: 100%;
+  max-height: 80px;
   flex: 0 0 50px;/*or just height:50px;*/
   margin-top: auto;
+
 }
 
 .blink {
@@ -78,4 +95,50 @@ footer{
 .demo-banner video {
   width: 100%;
   height: auto;
+}
+
+/* Navbar background */
+.navbar {
+  background-color: #004d4d; /* Deep Teal */
+  max-height: 80px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Gradient effect for smoother blending */
+.navbar {
+  background: linear-gradient(180deg, #004d4d 0%, #006666 100%);
+}
+
+/* Button styling with accent color */
+.btn-primary {
+  background-color: #004d4d;
+  border-color: #004d4d;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #006666; /* Slightly lighter shade for hover */
+  border-color: #006666;
+}
+
+/* Typography and link colors */
+.navbar-nav .nav-link {
+  color: white; /* White text for contrast */
+  font-weight: 600;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: #004d4d; /* Light blue for hover state */
+  border-radius: 10px;
+}
+
+/* Add a complementary background color to sections */
+.section-background {
+  background-color: #e6f2f2; /* Very light teal to complement the navbar */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.step-icon{
+  background-color: #004d4d;
 }
