@@ -1,5 +1,5 @@
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="container-fluid d-flex align-items-center justify-content-center min-vh-75">
+  <div class="container-fluid d-flex align-items-center justify-content-center min-vh-75 mt-5">
     <div class="row justify-content-center w-100">
       <div class="col-md-6 col-lg-4">
         <div class="card shadow">
@@ -14,10 +14,8 @@
                         input_html: { autocomplete: "current-password", class: "form-control mb-3"} %>
             <%= f.input :remember_me, as: :boolean, class: 'form-check-input', wrapper: false if devise_mapping.rememberable? %>
             <div class="d-grid gap-2">
-              <%= f.button :submit, "Log in", class: "btn btn-primary btn-block"%>
-            </div>
-            <div class="text-center mt-3">
-              <%= render "users/shared/links" %>
+              <%= f.button :submit, "Log in", class: "btn btn-primary btn-block w-50 mx-auto m-3"%>
+              <%= link_to "Forgot your password?", new_password_path(resource_name), class: "btn btn-primary btn-block w-50 mx-auto"%>
             </div>
           </div>
         </div>
