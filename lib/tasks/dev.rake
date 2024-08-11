@@ -1,13 +1,37 @@
 desc "Fill the database tables with some sample data"
-task({ :sample_data => :environment }) do
+task sample_data: :environment do
+  # Clear existing data
   User.delete_all
   PatientRequest.delete_all
   Comment.delete_all
+  Role.delete_all
 
+  # Create roles if they don't already exist
+  admin_role = Role.find_or_create_by(name: 'admin')
+  patient_role = Role.find_or_create_by(name: 'patient')
+
+  # Create an admin user
+  admin = User.create(
+    email: "admin@example.com",
+    password: "password",
+    username: "admin",
+    first_name: "Admin",
+    last_name: "User",
+    phone: Faker::PhoneNumber.cell_phone,
+    dob: Faker::Date.birthday(min_age: 25, max_age: 65),
+    role: 'patient',
+    address: Faker::Address.full_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    zipcode: Faker::Address.zip_code
+  )
+  admin.add_role(:admin)
+
+  # Create sample patient users
   24.times do
     name = Faker::Name.first_name
-    User.create(
-      email: "#{name}@example.com",
+    user = User.create(
+      email: "#{name.downcase}@example.com",
       password: "password",
       username: name.downcase,
       first_name: name,
@@ -20,6 +44,9 @@ task({ :sample_data => :environment }) do
       state: Faker::Address.state,
       zipcode: Faker::Address.zip_code
     )
+    
+    # Assign the patient role to each user
+    user.add_role(:patient)
   end
 
   users = User.all

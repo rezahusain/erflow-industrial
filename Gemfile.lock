@@ -338,6 +338,7 @@ GEM
       railties (>= 5.2)
     rexml (3.2.8)
       strscan (>= 3.0.9)
+    rolify (6.0.1)
     rouge (4.2.1)
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
@@ -468,6 +469,7 @@ DEPENDENCIES
   rails-erd
   rails_db
   redis (~> 4.0)
+  rolify
   rspec-html-matchers
   rspec-rails (~> 6.0.0)
   rufo
