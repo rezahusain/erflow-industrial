@@ -15,6 +15,7 @@
 #  user_id        :integer
 #
 class PatientRequest < ApplicationRecord
+  resourcify
   belongs_to :user, required: true, class_name: "User", foreign_key: "user_id"
   has_many  :comments, class_name: "Comment", foreign_key: "patient_request_id", dependent: :destroy
 
@@ -59,10 +60,10 @@ class PatientRequest < ApplicationRecord
   end
 
   def self.get_top
-
-    top_patient = all.order(rank: :asc).first.user.first_name
-
-    return top_patient
-
+    top_patient = all.order(rank: :asc).first
+    return nil unless top_patient # Return nil if there's no top patient
+  
+    top_patient.user.first_name
   end
+  
 end

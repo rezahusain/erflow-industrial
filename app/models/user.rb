@@ -27,11 +27,15 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+  rolify 
+  after_create :assign_role
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :forms, class_name: "PatientRequest", foreign_key: "user_id", dependent: :destroy
+
   
   validates :role, presence: true
   validates :dob, presence: true
@@ -46,6 +50,15 @@ class User < ApplicationRecord
     cdt = current_time.strftime "%m/%d/%Y %H:%M"
     @time = "Current Date and Time: " + cdt
     @time
+  end
+
+  def assign_role
+    if self.role == "patient"
+      self.add_role(:patient)
+    elsif self.role == "admin"
+      self.add_role(:admin)
+    end
+
   end
 
 end

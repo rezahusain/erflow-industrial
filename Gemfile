@@ -9,7 +9,7 @@ gem "devise-bootstrap5"
 gem "simple_form"
 gem 'will_paginate', '~> 3.3'
 gem 'will_paginate-bootstrap4'
-
+gem 'rolify'
 
 
 gem "aws-sdk-s3", require: false
