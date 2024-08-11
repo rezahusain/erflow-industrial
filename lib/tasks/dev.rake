@@ -1,22 +1,25 @@
-desc "Fill the database tables with some sample data"
+# frozen_string_literal: true
+
+desc 'Fill the database tables with some sample data'
 task sample_data: :environment do
   # Clear existing data
-  User.delete_all
-  PatientRequest.delete_all
-  Comment.delete_all
-  Role.delete_all
-
+  if Rails.env.development?
+    User.delete_all
+    PatientRequest.delete_all
+    Comment.delete_all
+    Role.delete_all
+  end
   # Create roles if they don't already exist
-  admin_role = Role.find_or_create_by(name: 'admin')
-  patient_role = Role.find_or_create_by(name: 'patient')
+  Role.find_or_create_by(name: 'admin')
+  Role.find_or_create_by(name: 'patient')
 
   # Create an admin user
   admin = User.create(
-    email: "admin@example.com",
-    password: "password",
-    username: "admin",
-    first_name: "Admin",
-    last_name: "User",
+    email: 'admin@example.com',
+    password: 'password',
+    username: 'admin',
+    first_name: 'Admin',
+    last_name: 'User',
     phone: Faker::PhoneNumber.cell_phone,
     dob: Faker::Date.birthday(min_age: 25, max_age: 65),
     role: 'patient',
@@ -32,7 +35,7 @@ task sample_data: :environment do
     name = Faker::Name.first_name
     user = User.create(
       email: "#{name.downcase}@example.com",
-      password: "password",
+      password: 'password',
       username: name.downcase,
       first_name: name,
       last_name: Faker::Name.last_name,
@@ -44,7 +47,7 @@ task sample_data: :environment do
       state: Faker::Address.state,
       zipcode: Faker::Address.zip_code
     )
-    
+
     # Assign the patient role to each user
     user.add_role(:patient)
   end
@@ -55,9 +58,9 @@ task sample_data: :environment do
     user.forms.create(
       image: Faker::Avatar.image,
       description: Faker::Food.description,
-      status: "under review",
+      status: 'under review',
       pain: rand(10),
-      injury_type: ['minor', 'moderate', 'severe', 'critical'].sample
+      injury_type: %w[minor moderate severe critical].sample
     )
   end
 
