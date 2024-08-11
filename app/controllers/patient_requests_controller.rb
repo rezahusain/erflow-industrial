@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PatientRequestsController < ApplicationController
-  before_action :set_patient_request, only: %i[ show edit update destroy ]
+  before_action :set_patient_request, only: %i[show edit update destroy]
 
   # GET /patient_requests or /patient_requests.json
   def index
@@ -7,9 +9,7 @@ class PatientRequestsController < ApplicationController
   end
 
   # GET /patient_requests/1 or /patient_requests/1.json
-  def show
-    
-  end
+  def show; end
 
   # GET /patient_requests/new
   def new
@@ -17,8 +17,7 @@ class PatientRequestsController < ApplicationController
   end
 
   # GET /patient_requests/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /patient_requests or /patient_requests.json
   def create
@@ -27,7 +26,9 @@ class PatientRequestsController < ApplicationController
       if @patient_request.save
         @patient_request.set_queue_position
         PatientRequest.rank_patients
-        format.html { redirect_to patient_request_url(@patient_request), notice: "Patient request was successfully created." }
+        format.html do
+          redirect_to patient_request_url(@patient_request), notice: 'Patient request was successfully created.'
+        end
         format.json { render :show, status: :created, location: @patient_request }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +41,9 @@ class PatientRequestsController < ApplicationController
   def update
     respond_to do |format|
       if @patient_request.update(patient_request_params)
-        format.html { redirect_to patient_request_url(@patient_request), notice: "Patient request was successfully updated." }
+        format.html do
+          redirect_to patient_request_url(@patient_request), notice: 'Patient request was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @patient_request }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,20 +57,21 @@ class PatientRequestsController < ApplicationController
     @patient_request.destroy!
 
     respond_to do |format|
-      format.html { redirect_to patient_requests_url, notice: "Patient request was successfully destroyed." }
+      format.html { redirect_to patient_requests_url, notice: 'Patient request was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_patient_request
-      @patient_request = PatientRequest.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def patient_request_params
-      params.require(:patient_request).permit(:user_id, :description, :image, :status, :pain, :queue_position, :injury_type)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_patient_request
+    @patient_request = PatientRequest.find(params[:id])
+  end
 
+  # Only allow a list of trusted parameters through.
+  def patient_request_params
+    params.require(:patient_request).permit(:user_id, :description, :image, :status, :pain, :queue_position,
+                                            :injury_type)
+  end
 end

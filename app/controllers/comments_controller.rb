@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :set_patient_request
-  before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :set_comment, only: %i[show edit update destroy]
 
   # GET /patient_requests/:patient_request_id/comments
   def index
@@ -8,8 +10,7 @@ class CommentsController < ApplicationController
   end
 
   # GET /patient_requests/:patient_request_id/comments/:id
-  def show
-  end
+  def show; end
 
   # GET /patient_requests/:patient_request_id/comments/new
   def new
@@ -17,17 +18,15 @@ class CommentsController < ApplicationController
   end
 
   # GET /patient_requests/:patient_request_id/comments/:id/edit
-  def edit
-  end
+  def edit; end
 
   # POST /patient_requests/:patient_request_id/comments
   def create
     @comment = @patient_request.comments.new(comment_params)
     @comment.form.user = current_user # Ensure the comment is associated with the current user
-
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to [@patient_request, @comment], notice: "Comment was successfully created." }
+        format.html { redirect_to [@patient_request, @comment], notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: [@patient_request, @comment] }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +39,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to [@patient_request, @comment], notice: "Comment was successfully updated." }
+        format.html { redirect_to [@patient_request, @comment], notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: [@patient_request, @comment] }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +52,9 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to patient_request_comments_url(@patient_request), notice: "Comment was successfully destroyed." }
+      format.html do
+        redirect_to patient_request_comments_url(@patient_request), notice: 'Comment was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end

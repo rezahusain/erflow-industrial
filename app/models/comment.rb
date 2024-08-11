@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: comments
@@ -9,5 +11,5 @@
 #  patient_request_id :integer
 #
 class Comment < ApplicationRecord
-  belongs_to :form, required: true, class_name: "PatientRequest", foreign_key: "patient_request_id"
+  belongs_to :form, required: true, class_name: 'PatientRequest', foreign_key: 'patient_request_id'
 end

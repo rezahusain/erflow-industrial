@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -27,16 +29,15 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  rolify 
+  rolify
   after_create :assign_role
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :forms, class_name: "PatientRequest", foreign_key: "user_id", dependent: :destroy
+  has_many :forms, class_name: 'PatientRequest', foreign_key: 'user_id', dependent: :destroy
 
-  
   validates :role, presence: true
   validates :dob, presence: true
   validates :phone, presence: true, uniqueness: true
@@ -47,18 +48,16 @@ class User < ApplicationRecord
 
   def self.display_time
     current_time = DateTime.now
-    cdt = current_time.strftime "%m/%d/%Y %H:%M"
-    @time = "Current Date and Time: " + cdt
+    cdt = current_time.strftime '%m/%d/%Y %H:%M'
+    @time = "Current Date and Time: #{cdt}"
     @time
   end
 
   def assign_role
-    if self.role == "patient"
-      self.add_role(:patient)
-    elsif self.role == "admin"
-      self.add_role(:admin)
+    if role == 'patient'
+      add_role(:patient)
+    elsif role == 'admin'
+      add_role(:admin)
     end
-
   end
-
 end
