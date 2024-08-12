@@ -1,6 +1,3 @@
-
-
-
 body{
   position: relative;
   font-family: "Lato", sans-serif;
@@ -10,11 +7,14 @@ body{
   margin: 0;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
 }
-
 .main{
-  background-color: #4d004d;
-  color: white;
+  background-color: #F3CFC6;
   box-shadow: 0 30px 40px rgba(0,0,0,.1);
 }
 
