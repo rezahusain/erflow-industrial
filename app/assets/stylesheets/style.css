@@ -8,11 +8,6 @@ body{
   display: grid;
   grid-template-rows: auto 1fr auto;
   background-color: #F5EFE6;
-  /*background-image: url('background.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;*/
 }
 .main{
   box-shadow: 0 30px 40px rgba(0,0,0,.1);
