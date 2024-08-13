@@ -3,6 +3,7 @@
 class CommentsController < ApplicationController
   before_action :set_patient_request
   before_action :set_comment, only: %i[show edit update destroy]
+  before_action { authorize @comment || Comment }
 
   # GET /patient_requests/:patient_request_id/comments
   def index

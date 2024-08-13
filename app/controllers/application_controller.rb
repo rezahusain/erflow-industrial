@@ -6,12 +6,13 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  # Reroutes after sign ins and sign ups to the right spot
   def after_sign_in_path_for(_resource)
-    patient_requests_path(current_user) # your path
+    landing_page_path
   end
 
   def after_sign_up_path_for(_resource)
-    patient_requests_path(current_user)
+    landing_page_path
   end
 
   def configure_permitted_parameters

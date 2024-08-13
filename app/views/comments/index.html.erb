@@ -4,6 +4,8 @@
   <% @comments.each do |comment| %>
     <%= render partial: 'comments/comment', locals: { comment: comment, patient_request: @patient_request } %>
   <% end %>
-  <%= link_to "New Note", new_patient_request_comment_path(@patient_request), class: "btn btn-primary mx-auto btn-lg mt-4"%>
+  <% if policy(@comments).create?%>
+    <%= link_to "New Note", new_patient_request_comment_path(@patient_request), class: "btn btn-primary mx-auto btn-lg mt-4"%>
+  <% end %>
   <%= link_to "Return to Details", patient_request_path(@patient_request), class: "btn btn-primary mx-auto btn-lg mt-4 mb-4"%>
 </div>
