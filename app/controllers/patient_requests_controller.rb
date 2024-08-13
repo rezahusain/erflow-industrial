@@ -2,7 +2,7 @@
 
 class PatientRequestsController < ApplicationController
   before_action :set_patient_request, only: %i[show edit update destroy]
-
+  before_action { authorize @patient_request || PatientRequest }
   # GET /patient_requests or /patient_requests.json
   def index
     @patient_requests = PatientRequest.rank_patients.paginate(page: params[:page], per_page: 10)
@@ -74,4 +74,5 @@ class PatientRequestsController < ApplicationController
     params.require(:patient_request).permit(:user_id, :description, :image, :status, :pain, :queue_position,
                                             :injury_type)
   end
+
 end

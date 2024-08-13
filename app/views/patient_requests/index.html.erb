@@ -1,22 +1,20 @@
-<div class="queue-page">
-  <div class="top-section">
-    <div class="d-flex justify-content-between align-items-center p-3 m-3">
-      <p class="fw-bold">
-        Current Date and Time: <span id="current-time"><%= User.display_time %></span>
-      </p>
-      <h1 class="text-center">Emergency Room Queue</h1>
-    </div>
-  </div>
+<div class="d-flex justify-content-between align-items-center p-3 m-3">
+  <p class="fw-bold"><%= User.display_time %></p>
+  <h1 class="text-center">Emergency Room Queue</h1>
+  <% if PatientRequest.get_top %>
+    <p><h2 class="text-center border border-primary rounded p-3"><%= PatientRequest.get_top %>, you are next!</h2></p>
+  <% else %>
+    <p><h2 class="text-center border border-primary rounded p-3">No patients are currently in the queue.</h2></p>
+  <% end %>
+</div>
 
-  <div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
-    <div class="text-center">
-      <%= image_tag "heartbeat.jpeg", width: 100, height: 100, alt: "No Patients", class: "mb-4" %> <!-- Add a medical-themed icon -->
-      <% if PatientRequest.get_top %>
-        <h2 class="text-center border border-primary rounded p-3"><%= PatientRequest.get_top %>, you are next!</h2>
-      <% else %>
-        <h2 class="text-muted">No patients are currently in the queue.</h2>
-        <%= link_to "Join the line", new_patient_request_path, class: "btn btn-primary mt-4" %>
-      <% end %>
+<div class="container">
+  <div class="row d-flex">
+    <% @patient_requests.each do |patient_request| %>
+      <%= render patient_request %>
+    <% end %>
+    <div class="d-flex justify-content-center m-3">
+      <%= will_paginate @patient_requests, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
     </div>
   </div>
 </div>

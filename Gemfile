@@ -13,6 +13,7 @@ gem 'rubocop', require: false
 gem 'simple_form'
 gem 'will_paginate', '~> 3.3'
 gem 'will_paginate-bootstrap4'
+gem 'pundit'
 
 gem 'aws-sdk-s3', require: false
 
