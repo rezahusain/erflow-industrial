@@ -68,6 +68,25 @@ If you are deploying to Render, the environment variables and database configura
 After setting up the environment variables and database configuration, run the following command to set up the database:
 ```rails db:setup```
 
+## Installation 🛠️
+
+### Current Main Branch: rails 7 
+* Clone the repository and switch to the main branch
+* Run the following commands
+
+```sh
+bundle install
+rails db:migrate
+rake sample_data
+bin/dev
+```
+After running the above commands you will have generated all the data needed to see the app functioning. The user Alice will have access, you can sign in with:
+
+* Email: ``alice@example.com``
+* Password: ``password``
+
+Or make your own personal account by signing up!
+
 ## ERD
 <img width="1440" alt="Screenshot 2024-07-29 at 9 41 49 AM" src="https://github.com/user-attachments/assets/d336c2f6-c93f-4d68-9d54-d13b026ab8d0">
 
