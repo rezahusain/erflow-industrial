@@ -1,7 +1,7 @@
 # ERFlow by Reza Husain
 Revolutionizing emergency room efficiency by seamlessly prioritizing patient care and reducing wait times.
 
-# Instructions
+## Instructions
 Howdy! I'm assuming your here because you wanted to get some treatment by a doctor or maybe your just curious? If so let me walk you through getting set up!
 
 Step 1: Clone this repository over to your local machine by running ```git clone https://github.com/rezahusain/erflow-industrial.git``` in your terminal.
@@ -12,7 +12,48 @@ Step 3. Type in ```bin/dev``` in your terminal and press enter. This will start 
 
 Your all set! 
 
-# Configuration
+## Main Features
+In this video, I walk you through the process of filling out an injury form, seeing where you are within the queue, and viewing the notes left on your queue spot by the hospital admin.<br>
+
+https://github.com/user-attachments/assets/27331265-8b5f-47a4-a9a7-70e1df0d861b
+
+## Technologies Used ⚙️
+- Ruby version: `3.2.1`
+- Rails version: `7.1.3`
+- Bootstrap version: `5.3.1`
+- Ajax version: `6.1.1`
+
+### Additonal gems added to applications
+- [`appdev_support`](https://github.com/firstdraft/appdev_support)
+- [`annotate`](https://github.com/ctran/annotate_models)
+- [`awesome_print`](https://github.com/awesome-print/awesome_print)
+- [`better_errors`](https://github.com/BetterErrors/better_errors)
+- [`binding_of_caller`](https://github.com/banister/binding_of_caller)
+- [`dotenv-rails`](https://github.com/bkeepers/dotenv)
+- [`draft_generators`](https://github.com/firstdraft/draft_generators/)
+- [`draft_matchers`](https://github.com/jelaniwoods/draft_matchers/)
+- [`devise`](https://github.com/heartcombo/devise)
+- [`faker`](https://github.com/faker-ruby/faker)
+- [`grade_runner`](https://github.com/firstdraft/grade_runner/)
+- [`htmlbeautifier`](https://github.com/threedaymonk/htmlbeautifier/)
+- [`http`](https://github.com/httprb/http)
+- [`pry_rails`](https://github.com/pry/pry-rails)
+- [`rails_db`](https://github.com/igorkasyanchuk/rails_db)
+- [`rails-erd`](https://github.com/voormedia/rails-erd)
+- [`rolify`](https://github.com/RolifyCommunity/rolify)
+- [`rspec-html-matchers`](https://github.com/kucaahbe/rspec-html-matchers)
+- [`rspec-rails`](https://github.com/rspec/rspec-rails)
+- [`rubocop`](https://github.com/rubocop/rubocop)
+- [`rufo`](https://github.com/ruby-formatter/rufo)
+- [`specs_to_readme`](https://github.com/firstdraft/specs_to_readme)
+- [`table_print`](https://github.com/arches/table_print)
+- [`webmock`](https://github.com/bblimke/webmock)
+- [`will_paginate`](https://github.com/mislav/will_paginate)
+- [`simple_form`](https://github.com/heartcombo/simple_form)
+- [`pundit`](https://github.com/varvet/pundit)
+- [`sprocket_rails`](https://github.com/rails/sprockets-rails)
+
+## Configuration
 Before starting the application, there are a few configuration steps to follow:
 
 1. Environment Variables:
@@ -27,13 +68,10 @@ If you are deploying to Render, the environment variables and database configura
 After setting up the environment variables and database configuration, run the following command to set up the database:
 ```rails db:setup```
 
-# ERD
+## ERD
 <img width="1440" alt="Screenshot 2024-07-29 at 9 41 49 AM" src="https://github.com/user-attachments/assets/d336c2f6-c93f-4d68-9d54-d13b026ab8d0">
 
-# Onboarding
-https://github.com/user-attachments/assets/27331265-8b5f-47a4-a9a7-70e1df0d861b
-
-# FAQ
+## FAQ
 Q: Who can I contact for support? <br>
 
 A: If you encounter any issues or have any questions, please feel free to open an issue on the GitHub repository or contact me directly through my GitHub profile.
