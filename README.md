@@ -30,6 +30,10 @@ After setting up the environment variables and database configuration, run the f
 # ERD
 <img width="1440" alt="Screenshot 2024-07-29 at 9 41 49 AM" src="https://github.com/user-attachments/assets/d336c2f6-c93f-4d68-9d54-d13b026ab8d0">
 
+# Onboarding
+https://github.com/user-attachments/assets/27331265-8b5f-47a4-a9a7-70e1df0d861b
+
 # FAQ
 Q: Who can I contact for support? <br>
+
 A: If you encounter any issues or have any questions, please feel free to open an issue on the GitHub repository or contact me directly through my GitHub profile.
