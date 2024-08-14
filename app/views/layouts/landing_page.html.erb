@@ -1,5 +1,5 @@
-<div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
-  <main class="main px-3 mt-5 text-dark" style="text-align:center; background-color: #F0F8F8;">
+<div class="cover-container d-flex w-100 mx-auto flex-column">
+  <main class="main px-3 mt-5 text-dark">
     <h1 class="fs-1 pt-5" style="color: #00352F;">ERFlow</h1>
     <p class="lead">ERFlow is an application designed to manage ER patients within a queue system.</p>      
     <% if user_signed_in? %>
@@ -13,7 +13,8 @@
         <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-dark btn-lg w-40 m-3"%>
       </p>
     <% end %>
-  </main>
+</main>
+
   
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 p-3 m-3 justify-content-center">
     <div class="col">

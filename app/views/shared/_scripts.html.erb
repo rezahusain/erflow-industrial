@@ -19,4 +19,52 @@
     // Update the time every second
     setInterval(updateTime, 1000);
   });
+
+  $(document).ready(function() {
+    function flashTopPatient() {
+      const $topPatient = $('#top-patient');
+      
+      if ($topPatient.length) {
+        // Add the flashing class
+        $topPatient.addClass('flashing');
+      }
+      
+      // Check every second if the top patient has been removed from the queue
+      setInterval(function() {
+        if ($('#top-patient').length === 0) {
+          // If the top patient is removed, stop flashing
+          clearInterval(this);
+        }
+      }, 1000);
+    }
+
+    flashTopPatient();
+  });
+
+  $(document).ready(function() {
+    const averageTreatmentTime = 10;
+    function estimateTimeUntilTreatment() {
+      $('.patient-request').each(function(index) {
+        // Calculate the estimated time based on position in the queue
+        const estimatedTime = (index + 1) * averageTreatmentTime;
+        
+        // Convert to hours and minutes
+        const hours = Math.floor(estimatedTime / 60);
+        const minutes = estimatedTime % 60;
+        let timeText = '';
+
+        if (hours > 0) {
+          timeText = `${hours}h ${minutes}min`;
+        } else {
+          timeText = `${minutes}min`;
+        }
+
+        // Display the estimated time in a span within each patient request
+        $(this).find('.estimated-time').text(`Estimated time until treatment: ${timeText}`);
+      });
+    }
+
+    // Call the function to estimate time when the page loads
+    estimateTimeUntilTreatment();
+  });
 </script>

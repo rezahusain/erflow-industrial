@@ -44,7 +44,6 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :username, presence: true, uniqueness: true, length: { in: 6..30 }
   validates :email, presence: true, uniqueness: true
-  validates :zipcode, length: { is: 5 }
 
   def self.display_time
     current_time = DateTime.now

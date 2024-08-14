@@ -1,5 +1,5 @@
 <%= form_with(model: patient_request, class: "container-fluid d-flex justify-content-center align-items-center vh-75 mt-5 mb-5") do |form| %>
-  <div class="card w-50 p-4 shadow">
+  <div class="card p-4 shadow w-100 w-md-75 w-lg-50">
     <h1 class="card-title text-center mb-4">Patient Request</h1>
     <% if patient_request.errors.any? %>
       <div class="alert alert-danger">
@@ -19,17 +19,17 @@
 
     <div class="form-group">
       <%= form.label :image %>
-      <%= form.text_field :image, class: "form-control m-2 input-sm w-50" %>
+      <%= form.text_field :image, class: "form-control m-2 input-sm" %>
     </div>
 
     <div class="form-group">
       <%= form.label :description %>
-      <%= form.text_area :description, required: true, class: "form-control m-2 input-sm w-50" %>
+      <%= form.text_area :description, required: true, class: "form-control m-2 input-sm" %>
     </div>
 
     <div class="form-group">
       <%= form.label :pain %>
-      <%= form.number_field :pain, in: 1..10, step: 1, required: true, class: "form-control m-2 input-sm w-25" %>
+      <%= form.select :pain, options_for_select(1..10), required: true, class: "form-control m-2 input-sm w-100 w-sm-50 w-md-25" %>
     </div>
 
     <div class="form-group">
