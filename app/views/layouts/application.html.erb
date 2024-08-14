@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="app/assets/stylesheets/style.css">
+    <!--<script type="text/javascript" src="app/javascript/scripts.js"></script>-->
     <title>ERFlow</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
   
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= render partial: "shared/cdn_assets"%>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "style", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-3.6.0.min.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_importmap_tags %>
-
+    <%= render partial: "shared/scripts"%>
     <!-- Custom styles for this template -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
   </head>
 
   <body>

@@ -1,23 +1,27 @@
-<div class="d-flex justify-content-center align-items-center flex-column p-5">
-  <div class="card w-75 m-3 p-3 text-center">
-    <h1 class="card-title">Details for <%= @patient_request.user.first_name%></h1>
-    <p class="card-text overflow-auto p-3">Description: <%= @patient_request.description %></p>
-    <ul class="list-group list-group-flush text-white opacity-50">
-      <li class="list-group-item">Status: <%= @patient_request.status %></li>
-      <li class="list-group-item">Pain: <%= @patient_request.pain %></li>
-      <li class="list-group-item">Injury Type: <%= @patient_request.injury_type %></li>
-    </ul>
-    <div class="d-flex justify-content-center p-3">
-      <!-- Button trigger modal -->
-      <%= render partial: "shared/modal", locals: {image: @patient_request.image}%>
-      <p class="card-text overflow-auto m-2">
-        <button class="btn btn-primary btn-lg bg-primary mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          View Patient Image
-        </button>
-      </p>
-      <p class="card-text overflow-auto m-2"><%= link_to "View Notes", patient_request_comments_path(@patient_request), class: "btn btn-primary btn-lg mt-4"%>
-      </p>
-      <p class="card-text overflow-auto m-2"><%= link_to "Return to Queue", patient_requests_path, class: "btn btn-primary btn-lg mt-4"%></p>
+<div class="container-fluid">
+  <div class="row justify-content-center p-3">
+    <div class="col-12 col-md-10 col-lg-8">
+      <div class="card text-center mb-3">
+        <div class="card-body">
+          <h1 class="card-title">Details for <%= @patient_request.user.first_name %></h1>
+          <p class="card-text overflow-auto p-3">Description: <%= @patient_request.description %></p>
+          <ul class="list-group list-group-flush text-dark">
+            <li class="list-group-item">Status: <%= @patient_request.status %></li>
+            <li class="list-group-item">Pain: <%= @patient_request.pain %></li>
+            <li class="list-group-item">Injury Type: <%= @patient_request.injury_type %></li>
+          </ul>
+          <div class="d-flex flex-column flex-md-row justify-content-center align-items-center p-3">
+            <!-- Button trigger modal -->
+            <%= render partial: "shared/modal", locals: { image: @patient_request.image } %>
+            <button class="btn btn-primary btn-lg m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              View Patient Image
+            </button>
+            <%= link_to "View Notes", patient_request_comments_path(@patient_request), class: "btn btn-primary btn-lg m-2" %>
+            <%= link_to "Return to Queue", patient_requests_path, class: "btn btn-primary btn-lg m-2" %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+

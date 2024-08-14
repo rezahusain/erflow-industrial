@@ -1,16 +1,19 @@
-<div id="<%= dom_id patient_request %>">
-  <div class="col flex-column">
-    <div class="card border mx-auto text-center main">
-      <h1 class="card-text text p-2"><%= patient_request.rank %></h1>
-      <div class="card-body text">
-        <strong class="card-title"><%= patient_request.user.first_name + " " + patient_request.user.last_name %></strong><br>
+<div id="<%= dom_id patient_request %>" class="patient-request mb-3">
+  <div class="card border mx-auto text-center shadow-sm" style="max-width: 90%;">
+    <h1 class="card-text text p-2" style="font-size: 1.5rem;"><%= patient_request.rank %></h1>
+    <div class="card-body text">
+      <strong class="card-title d-block" style="font-size: 1.25rem;">
+        <%= patient_request.user.first_name + " " + patient_request.user.last_name %>
+      </strong>
+      <!-- Placeholder for Estimated Time -->
+      <div class="estimated-time mt-2"></div>
       <% if policy(patient_request).show? %>
-        <div class="card-body">
-          <% if current_page?(patient_requests_path) %>
-            <%= link_to "View details", patient_request, class: "btn btn-outline-dark m-3" %>
-            <%= button_to "Remove from queue", patient_request, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-dark m-3" %>
-          <% end %>
-        </div>
+      <div class="card-body p-0 mt-3">
+        <% if current_page?(patient_requests_path) %>
+          <%= link_to "View details", patient_request, class: "btn btn-outline-dark btn-sm w-100 mb-2" %>
+          <%= button_to "Remove from queue", patient_request, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-dark btn-sm w-100" %>
+        <% end %>
+      </div>
       <% end %>
     </div>
   </div>

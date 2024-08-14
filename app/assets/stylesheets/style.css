@@ -8,14 +8,11 @@ body{
   display: grid;
   grid-template-rows: auto 1fr auto;
   background-color: #F5EFE6;
-  /*background-image: url('background.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;*/
 }
 .main{
   box-shadow: 0 30px 40px rgba(0,0,0,.1);
+  text-align:center; 
+  background-color: #F0F8F8;
 }
 
 footer{
@@ -99,13 +96,12 @@ footer{
 
 /* Navbar background */
 .navbar {
-  background-color: #004d4d; /* Deep Teal */
-  max-height: 80px;
+  background: linear-gradient(180deg, #004d4d 0%, #006666 100%);
+  max-height: 90px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
-/* Gradient effect for smoother blending */
-.navbar {
+#navbarNav.show{
   background: linear-gradient(180deg, #004d4d 0%, #006666 100%);
 }
 
@@ -123,7 +119,7 @@ footer{
 
 /* Typography and link colors */
 .navbar-nav .nav-link {
-  color: white; /* White text for contrast */
+  color: black; /* White text for contrast */
   font-weight: 600;
 }
 
@@ -141,4 +137,15 @@ footer{
 
 .step-icon{
   background-color: #004d4d;
+}
+
+/* Add this to your stylesheet */
+.flashing {
+  animation: flash 1s infinite;
+}
+
+@keyframes flash {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
 }

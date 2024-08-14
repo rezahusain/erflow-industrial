@@ -5,7 +5,7 @@ class PatientRequestsController < ApplicationController
   before_action { authorize @patient_request || PatientRequest }
   # GET /patient_requests or /patient_requests.json
   def index
-    @patient_requests = PatientRequest.rank_patients.paginate(page: params[:page], per_page: 10)
+    @patient_requests = PatientRequest.rank_patients.paginate(page: params[:page], per_page: 12)
   end
 
   # GET /patient_requests/1 or /patient_requests/1.json
