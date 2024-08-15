@@ -30,6 +30,23 @@ task sample_data: :environment do
   )
   admin.add_role(:admin)
 
+  # Create a sample test user (alice)
+  alice = User.create(
+    email: 'alice@example.com',
+    password: 'password',
+    username: 'alice99',
+    first_name: 'Alice',
+    last_name: 'Doe',
+    phone: Faker::PhoneNumber.cell_phone,
+    dob: Faker::Date.birthday(min_age: 25, max_age: 65),
+    role: 'patient',
+    address: Faker::Address.full_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    zipcode: Faker::Address.zip_code
+  )
+  alice.add_role(:patient)
+
   # Create sample patient users
   24.times do
     name = Faker::Name.first_name

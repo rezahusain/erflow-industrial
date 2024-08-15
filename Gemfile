@@ -8,14 +8,12 @@ ruby '3.2.1'
 gem 'devise'
 gem 'devise-bootstrap5'
 gem 'devise-i18n'
+gem 'pundit'
 gem 'rolify'
 gem 'rubocop', require: false
 gem 'simple_form'
 gem 'will_paginate', '~> 3.3'
 gem 'will_paginate-bootstrap4'
-gem 'pundit'
-
-gem 'aws-sdk-s3', require: false
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.3', '>= 7.1.3.2'

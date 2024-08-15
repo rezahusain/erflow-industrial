@@ -42,29 +42,63 @@
   });
 
   $(document).ready(function() {
-    const averageTreatmentTime = 10;
+    const averageTreatmentTime = 10 * 60; // Average treatment time in seconds (10 minutes)
+    const storageKeyPrefix = 'patient_time_left_'; // Prefix for localStorage keys
+
     function estimateTimeUntilTreatment() {
-      $('.patient-request').each(function(index) {
-        // Calculate the estimated time based on position in the queue
-        const estimatedTime = (index + 1) * averageTreatmentTime;
-        
-        // Convert to hours and minutes
-        const hours = Math.floor(estimatedTime / 60);
-        const minutes = estimatedTime % 60;
+        $('.patient-request').each(function(index) {
+            const $this = $(this);
+            const patientId = $this.attr('id'); // Get a unique identifier for each patient request
+            let timeLeft = localStorage.getItem(storageKeyPrefix + patientId); // Check if time is stored in localStorage
+
+            if (!timeLeft) {
+                timeLeft = (index + 1) * averageTreatmentTime; // Initialize time if not found in localStorage
+            }
+
+            // Start the countdown for each patient request
+            const countdown = setInterval(function() {
+                if (timeLeft <= 0) {
+                    clearInterval(countdown); // Stop the countdown when time reaches zero
+                    $this.remove(); // Remove the patient request from the DOM
+
+                    // Optionally remove the patient from the server-side queue as well
+                    localStorage.removeItem(storageKeyPrefix + patientId); // Clean up localStorage entry
+                } else {
+                    timeLeft -= 1; // Reduce time by 1 second
+                    updateTimeText($this, timeLeft);
+
+                    // Save the updated time to localStorage
+                    localStorage.setItem(storageKeyPrefix + patientId, timeLeft);
+                }
+            }, 1000); // Reduce time every second
+
+            // Initial display of time
+            updateTimeText($this, timeLeft);
+        });
+    }
+
+    function updateTimeText($element, timeLeft) {
+        const hours = Math.floor(timeLeft / 3600);
+        const minutes = Math.floor((timeLeft % 3600) / 60);
+        const seconds = timeLeft % 60;
         let timeText = '';
 
         if (hours > 0) {
-          timeText = `${hours}h ${minutes}min`;
+            timeText = `${hours}h ${minutes}min ${seconds}s`;
+        } else if (minutes > 0) {
+            timeText = `${minutes}min ${seconds}s`;
         } else {
-          timeText = `${minutes}min`;
+            timeText = `${seconds}s`;
         }
 
         // Display the estimated time in a span within each patient request
-        $(this).find('.estimated-time').text(`Estimated time until treatment: ${timeText}`);
-      });
+        $element.find('.estimated-time').text(`Estimated time until treatment: ${timeText}`);
     }
 
     // Call the function to estimate time when the page loads
     estimateTimeUntilTreatment();
-  });
+});
+
+
+
 </script>
