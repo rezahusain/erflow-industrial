@@ -1,0 +1,43 @@
+/* Infographic */
+.infographic .step-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.step-icon{
+  background-color: #004d4d;
+}
+
+.infographic .step-title {
+  font-size: 1.1rem;
+}
+
+.infographic p {
+  font-size: 0.9rem;
+}
+
+/* Video Banner */
+.demo-banner .embed-responsive {
+  position: relative;
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.demo-banner video {
+  width: 100%;
+  height: auto;
+}
+
+/* Add a complementary background color to sections */
+.section-background {
+  background-color: #e6f2f2; /* Very light teal to complement the navbar */
+  padding: 20px;
+  border-radius: 8px;
+}

@@ -1,0 +1,48 @@
+.blink {
+  animation: blinker 1s linear infinite;
+  width:100px;
+  font-weight:bold;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* General Styles */
+@media (max-width: 767px) {
+  .fs-1 {
+    font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+  .fs-2 {
+    font-size: 1.5rem;
+  }
+  .fs-3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* General Styles */
+@media (max-width: 767px) {
+  .fs-1 {
+    font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+  .fs-2 {
+    font-size: 1.5rem;
+  }
+  .fs-3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Add this to your stylesheet */
+.flashing {
+  animation: flash 1s infinite;
+}
+
+@keyframes flash {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}

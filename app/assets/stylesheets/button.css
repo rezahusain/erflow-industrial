@@ -1,0 +1,11 @@
+/* Button styling with accent color */
+.btn-primary {
+  background-color: #004d4d;
+  border-color: #004d4d;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #006666; /* Slightly lighter shade for hover */
+  border-color: #006666;
+}

@@ -1,0 +1,20 @@
+/* Navbar background */
+.navbar {
+  background: linear-gradient(180deg, #004d4d 0%, #006666 100%);
+  max-height: 90px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+/* Typography and link colors */
+.navbar-nav .nav-link {
+  color: black; /* White text for contrast */
+  font-weight: 600;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: #004d4d; /* Light blue for hover state */
+  border-radius: 10px;
+}
+
+#navbarNav.show{
+  background: linear-gradient(180deg, #004d4d 0%, #006666 100%);
+}
