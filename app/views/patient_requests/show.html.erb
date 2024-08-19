@@ -12,7 +12,7 @@
           </ul>
           <div class="d-flex flex-column flex-md-row justify-content-center align-items-center p-3">
             <!-- Button trigger modal -->
-            <%= render partial: "shared/modal", locals: { image: @patient_request.image } %>
+            <%= render partial: "shared/modal", locals: { patient_request: @patient_request } %>
             <button class="btn btn-primary btn-lg m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
               View Patient Image
             </button>
@@ -24,4 +24,3 @@
     </div>
   </div>
 </div>
-
