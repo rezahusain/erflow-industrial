@@ -1,0 +1,27 @@
+/* Custom Breadcrumb Styles */
+.breadcrumb {
+  background-color: transparent; /* Make the background transparent */
+  font-size: 1.1rem; /* Slightly larger text */
+  padding: 0.5rem 1rem; /* Add padding around the breadcrumb */
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "›"; /* Change the default slash separator to an arrow */
+  color: #6c757d; /* Adjust the arrow color */
+}
+
+.breadcrumb-item a {
+  color: #007bff; /* Change the link color */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.breadcrumb-item.active {
+  color: #6c757d; /* Set the color of the active breadcrumb item */
+}
+
+@media (max-width: 768px) {
+  .breadcrumb {
+    font-size: 0.9rem; /* Smaller font on mobile */
+    padding: 0.5rem;
+  }
+}

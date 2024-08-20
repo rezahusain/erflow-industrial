@@ -1,10 +1,10 @@
+<%= render 'shared/breadcrumb', breadcrumb_pages: [{ name: "Home" }] %>
 <div class="cover-container d-flex w-100 mx-auto flex-column">
   <main class="main px-3 mt-5 text-dark">
     <h1 class="fs-1 pt-5" style="color: #00352F;">ERFlow</h1>
     <p class="lead">ERFlow is an application designed to manage ER patients within a queue system.</p>      
     <% if user_signed_in? %>
       <p class="lead">
-        <%= link_to "Form", new_patient_request_path, class: "btn btn-outline-dark btn-lg w-40 m-3"%>
         <%= link_to "Queue", patient_requests_path, class: "btn btn-outline-dark btn-lg w-40 m-3"%>
       </p>
     <% else %>
