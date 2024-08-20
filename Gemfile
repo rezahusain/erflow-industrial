@@ -3,9 +3,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.1'
+ruby '~> 3.2.1'
 
-gem 'aws-sdk-s3'
+gem 'aws-sdk-s3', require: false
 gem 'devise'
 gem 'devise-bootstrap5'
 gem 'devise-i18n'
