@@ -1,3 +1,4 @@
+<%= render 'shared/breadcrumb', breadcrumb_pages: [{ name: "Home", url: landing_page_path }, {name: "Queue", url: patient_requests_path}, {name: "Details", url: patient_request_path(@patient_request)}, {name: "Notes"}] %>
 <p style="color: green"><%= notice %></p>
 <h1 class="text-center">Notes</h1>
 <div class="d-flex flex-column align-items-center">
