@@ -74,5 +74,4 @@ class PatientRequestsController < ApplicationController
     params.require(:patient_request).permit(:user_id, :description, :image, :status, :pain, :queue_position,
                                             :injury_type, :injury_photo)
   end
-
 end

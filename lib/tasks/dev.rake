@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Comment: Good job using a rake task to load sample data in development; however, consider adding logs so the user can see what is going on.
+
 desc 'Fill the database tables with some sample data'
 task sample_data: :environment do
   # Clear existing data
