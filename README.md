@@ -94,7 +94,3 @@ Or make your own personal account by signing up!
 Q: Who can I contact for support? <br />
 
 A: If you encounter any issues or have any questions, please feel free to open an issue on the GitHub repository or contact me directly through my GitHub profile.
-
-## Testing
-
-Testing Branch Protection 
