@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-
   # Comment: Consider adding these states to lib directory as us_states.rb since they are constants and importing the using require 'us_states' view `./note.md` for more information.
-  
+
   def us_states
     [
       ['Alabama', 'AL'], ['Alaska', 'AK'], ['Arizona', 'AZ'], ['Arkansas', 'AR'], ['California', 'CA'],

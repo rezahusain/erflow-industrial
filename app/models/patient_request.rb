@@ -19,7 +19,7 @@
 class PatientRequest < ApplicationRecord
   resourcify
   belongs_to :user, required: true, class_name: 'User', foreign_key: 'user_id'
-  has_many  :comments, class_name: 'Comment', foreign_key: 'patient_request_id', dependent: :destroy
+  has_many :comments, class_name: 'Comment', foreign_key: 'patient_request_id', dependent: :destroy
   has_one_attached :injury_photo
 
   validates :description, presence: true,

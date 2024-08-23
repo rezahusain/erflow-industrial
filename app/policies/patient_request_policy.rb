@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PatientRequestPolicy < ApplicationPolicy
   attr_reader :user, :patient_request
 
@@ -25,5 +27,4 @@ class PatientRequestPolicy < ApplicationPolicy
   def destroy?
     user == patient_request.user || user.has_role?(:admin)
   end
-
 end

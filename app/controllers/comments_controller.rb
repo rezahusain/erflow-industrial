@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
   # GET /patient_requests/:patient_request_id/comments/:id
   def show; end
- 
+
   # GET /patient_requests/:patient_request_id/comments/new
   def new
     @comment = @patient_request.comments.new
