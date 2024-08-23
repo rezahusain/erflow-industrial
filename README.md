@@ -13,7 +13,7 @@ Step 3. Type in ```bin/dev``` in your terminal and press enter. This will start 
 Your all set! 
 
 ## Main Features
-In this video, I walk you through the process of filling out an injury form, seeing where you are within the queue, and viewing the notes left on your queue spot by the hospital admin.<br>
+In this video, I walk you through the process of filling out an injury form, seeing where you are within the queue, and viewing the notes left on your queue spot by the hospital admin.<br />
 
 https://github.com/user-attachments/assets/27331265-8b5f-47a4-a9a7-70e1df0d861b
 
@@ -58,7 +58,7 @@ Before starting the application, there are a few configuration steps to follow:
 
 1. Environment Variables:
 If you're deploying locally or using a different service, ensure you set up the necessary environment variables. For local development, you can create a .env file in the root of the project and add the following variables:
-```DATABASE_URL=your_database_url```<br>
+```DATABASE_URL=your_database_url```<br />
 ```SECRET_KEY_BASE=your_secret_key_base```
 
 2. Render Configuration:
@@ -88,9 +88,13 @@ After running the above commands you will have generated all the data needed to 
 Or make your own personal account by signing up!
 
 ## ERD
-<img width="1440" alt="Screenshot 2024-07-29 at 9 41 49 AM" src="https://github.com/user-attachments/assets/d336c2f6-c93f-4d68-9d54-d13b026ab8d0">
+<img width="1440" alt="Screenshot 2024-07-29 at 9 41 49 AM" src="https://github.com/user-attachments/assets/d336c2f6-c93f-4d68-9d54-d13b026ab8d0" />
 
 ## FAQ
-Q: Who can I contact for support? <br>
+Q: Who can I contact for support? <br />
 
 A: If you encounter any issues or have any questions, please feel free to open an issue on the GitHub repository or contact me directly through my GitHub profile.
+
+## Testing
+
+Testing Branch Protection 
